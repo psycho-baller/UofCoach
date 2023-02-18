@@ -43,18 +43,39 @@ source .venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
+5. Install and init MySQL
 
-5. Create `.env` file and add app and database settings
+Linux:
+```bash
+sudo apt-get install mysql-server
+mysql -u root -p
+```
+
+macOS:
+```bash
+brew install mysql
+mysql -u root -p
+```
+
+6. Create the database
+
+```SQL
+CREATE DATABASE uofcoach;
+```
+
+*Note: You can set the database name / user / password / port, but you'll need to update the `.env` file (see below)*
+
+7. Create `.env` file and add app and database settings
 
 * `SECRET_KEY`: The secret key for the application (can be any string)
 * `DB_TYPE`: The engine type of database - defaults to "mysql"
 * `DB_HOST`: The hostname for the database - defaults to "localhost"
 * `DB_PORT`: The port for the database - defaults to "3306"
-* `DB_NAME`: The name of the database - defaults to "main"
+* `DB_NAME`: The name of the database - defaults to "uofcoach"
 * `DB_USER`: The username for the database - defaults to "root"
 * `DB_PSSW`: The password for the database - defaults to ""
 
-6. Run the application
+8. Run the application
 
 ```bash
 flask run
