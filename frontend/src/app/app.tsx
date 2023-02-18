@@ -1,10 +1,14 @@
+import { Route, Routes } from 'react-router-dom';
 import Welcome from 'src/components/welcome';
-import styles from './app.module.scss';
-
 
 export function App() {
   return (
-    <Welcome/>
+    <>
+      <Routes>
+        <Route path="/" element={<Welcome />}></Route>
+        <Route path="/home" element={<Welcome />}></Route>
+      </Routes>
+    </>
   );
 }
 
