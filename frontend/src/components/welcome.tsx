@@ -11,13 +11,13 @@ import { Testimonials } from './Testimonials';
 export default function Welcome() {
   return (
     <>
-      <Head>
+      <head>
         <title>TaxPal - Accounting made simple for small businesses</title>
         <meta
           name="description"
           content="Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited."
         />
-      </Head>
+      </head>
       <Header />
       <main>
         <Hero />
