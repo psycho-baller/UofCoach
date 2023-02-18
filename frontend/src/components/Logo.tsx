@@ -1,4 +1,4 @@
-export function Logo(props) {
+export function Logo(props: any) {
   return (
     <svg aria-hidden="true" viewBox="0 0 109 40" {...props}>
       <path

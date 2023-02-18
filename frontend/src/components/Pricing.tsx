@@ -1,9 +1,7 @@
 import clsx from 'clsx'
+import { Container } from './Container'
 
-import { Button } from '@/components/Button'
-import { Container } from '@/components/Container'
-
-function SwirlyDoodle({ className }) {
+function SwirlyDoodle({ className }: any) {
   return (
     <svg
       aria-hidden="true"
@@ -20,7 +18,7 @@ function SwirlyDoodle({ className }) {
   )
 }
 
-function CheckIcon({ className }) {
+function CheckIcon({ className }: any) {
   return (
     <svg
       aria-hidden="true"
@@ -46,7 +44,7 @@ function CheckIcon({ className }) {
   )
 }
 
-function Plan({ name, price, description, href, features, featured = false }) {
+function Plan({ name, price, description, href, features, featured = false }: any) {
   return (
     <section
       className={clsx(
@@ -73,22 +71,20 @@ function Plan({ name, price, description, href, features, featured = false }) {
           featured ? 'text-white' : 'text-slate-200'
         )}
       >
-        {features.map((feature) => (
+        {features.map((feature: any) => (
           <li key={feature} className="flex">
             <CheckIcon className={featured ? 'text-white' : 'text-slate-400'} />
             <span className="ml-4">{feature}</span>
           </li>
         ))}
       </ul>
-      <Button
-        href={href}
-        variant={featured ? 'solid' : 'outline'}
+      <button
         color="white"
         className="mt-8"
         aria-label={`Get started with the ${name} plan for ${price}`}
       >
         Get started
-      </Button>
+      </button>
     </section>
   )
 }

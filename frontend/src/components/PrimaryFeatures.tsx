@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react'
 import { Tab } from '@headlessui/react'
 
 import { Container } from './Container'
-import backgroundImage from '@/images/background-features.jpg'
-import screenshotExpenses from '@/images/screenshots/expenses.png'
-import screenshotPayroll from '@/images/screenshots/payroll.png'
-import screenshotReporting from '@/images/screenshots/reporting.png'
-import screenshotVatReturns from '@/images/screenshots/vat-returns.png'
+import backgroundImage from '../assets/images/background-features.jpg'
+import screenshotExpenses from '../assets/images/screenshots/expenses.png'
+import screenshotPayroll from '../assets/images/screenshots/payroll.png'
+import screenshotReporting from '../assets/images/screenshots/reporting.png'
+import screenshotVatReturns from '../assets/images/screenshots/vat-returns.png'
+import clsx from 'clsx'
 
 const features = [
   {
@@ -88,34 +89,34 @@ export function PrimaryFeatures() {
                   {features.map((feature, featureIndex) => (
                     <div
                       key={feature.title}
-                    //   className={clsx(
-                    //     'group relative rounded-full py-1 px-4 lg:rounded-r-none lg:rounded-l-xl lg:p-6',
-                    //     selectedIndex === featureIndex
-                    //       ? 'bg-white lg:bg-white/10 lg:ring-1 lg:ring-inset lg:ring-white/10'
-                    //       : 'hover:bg-white/10 lg:hover:bg-white/5'
-                    //   )
-                    // }
+                      className={clsx(
+                        'group relative rounded-full py-1 px-4 lg:rounded-r-none lg:rounded-l-xl lg:p-6',
+                        selectedIndex === featureIndex
+                          ? 'bg-white lg:bg-white/10 lg:ring-1 lg:ring-inset lg:ring-white/10'
+                          : 'hover:bg-white/10 lg:hover:bg-white/5'
+                      )
+                    }
                     >
                       <h3>
                         <Tab
-                          // className={clsx(
-                          //   'font-display text-lg [&:not(:focus-visible)]:focus:outline-none',
-                          //   selectedIndex === featureIndex
-                          //     ? 'text-blue-600 lg:text-white'
-                          //     : 'text-blue-100 hover:text-white lg:text-white'
-                          // )}
+                          className={clsx(
+                            'font-display text-lg [&:not(:focus-visible)]:focus:outline-none',
+                            selectedIndex === featureIndex
+                              ? 'text-blue-600 lg:text-white'
+                              : 'text-blue-100 hover:text-white lg:text-white'
+                          )}
                         >
                           <span className="absolute inset-0 rounded-full lg:rounded-r-none lg:rounded-l-xl" />
                           {feature.title}
                         </Tab>
                       </h3>
                       <p
-                        // className={clsx(
-                        //   'mt-2 hidden text-sm lg:block',
-                        //   selectedIndex === featureIndex
-                        //     ? 'text-white'
-                        //     : 'text-blue-100 group-hover:text-white'
-                        // )}
+                        className={clsx(
+                          'mt-2 hidden text-sm lg:block',
+                          selectedIndex === featureIndex
+                            ? 'text-white'
+                            : 'text-blue-100 group-hover:text-white'
+                        )}
                       >
                         {feature.description}
                       </p>

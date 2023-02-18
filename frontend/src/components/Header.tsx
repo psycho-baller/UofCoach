@@ -1,22 +1,20 @@
 import { Fragment } from 'react'
-import Link from 'next/link'
 import { Popover, Transition } from '@headlessui/react'
+
+import { Container } from './Container'
+//import { Logo } from '@/components/Logo'
+import { NavLink } from './NavLink'
 import clsx from 'clsx'
 
-import { Button } from '@/components/Button'
-import { Container } from '@/components/Container'
-import { Logo } from '@/components/Logo'
-import { NavLink } from '@/components/NavLink'
-
-function MobileNavLink({ href, children }) {
+function MobileNavLink({ href, children }: any) {
   return (
-    <Popover.Button as={Link} href={href} className="block w-full p-2">
+    <Popover.Button as={'a'} href={href} className="block w-full p-2">
       {children}
     </Popover.Button>
   )
 }
 
-function MobileNavIcon({ open }) {
+function MobileNavIcon({ open }: any) {
   return (
     <svg
       aria-hidden="true"
@@ -95,9 +93,9 @@ export function Header() {
       <Container>
         <nav className="relative z-50 flex justify-between">
           <div className="flex items-center md:gap-x-12">
-            <Link href="#" aria-label="Home">
-              <Logo className="h-10 w-auto" />
-            </Link>
+            <a href="#" aria-label="Home">
+              {/*<Logo className="h-10 w-auto" />*/}
+            </a>
             <div className="hidden md:flex md:gap-x-6">
               <NavLink href="#features">Features</NavLink>
               <NavLink href="#testimonials">Testimonials</NavLink>
@@ -108,11 +106,11 @@ export function Header() {
             <div className="hidden md:block">
               <NavLink href="/login">Sign in</NavLink>
             </div>
-            <Button href="/register" color="blue">
+            <button color="blue">
               <span>
                 Get started <span className="hidden lg:inline">today</span>
               </span>
-            </Button>
+            </button>
             <div className="-mr-1 md:hidden">
               <MobileNavigation />
             </div>

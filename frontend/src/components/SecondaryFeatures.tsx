@@ -1,12 +1,10 @@
 import { useId } from 'react'
-import Image from 'next/image'
 import { Tab } from '@headlessui/react'
+import { Container } from './Container'
+import screenshotContacts from '../assets/images/screenshots/contacts.png'
+import screenshotInventory from '../assets/images/screenshots/inventory.png'
+import screenshotProfitLoss from '../assets/images/screenshots/profit-loss.png'
 import clsx from 'clsx'
-
-import { Container } from '@/components/Container'
-import screenshotContacts from '@/images/screenshots/contacts.png'
-import screenshotInventory from '@/images/screenshots/inventory.png'
-import screenshotProfitLoss from '@/images/screenshots/profit-loss.png'
 
 const features = [
   {
@@ -96,7 +94,7 @@ const features = [
   },
 ]
 
-function Feature({ feature, isActive, className, ...props }) {
+function Feature({ feature, isActive, className, ...props }: any) {
   return (
     <div
       className={clsx(className, !isActive && 'opacity-75 hover:opacity-100')}
@@ -137,7 +135,7 @@ function FeaturesMobile() {
           <div className="relative mt-10 pb-10">
             <div className="absolute -inset-x-4 bottom-0 top-8 bg-slate-200 sm:-inset-x-6" />
             <div className="relative mx-auto w-[52.75rem] overflow-hidden rounded-xl bg-white shadow-lg shadow-slate-900/5 ring-1 ring-slate-500/10">
-              <Image
+              <img
                 className="w-full"
                 src={feature.image}
                 alt=""
@@ -188,7 +186,7 @@ function FeaturesDesktop() {
                   aria-hidden={featureIndex !== selectedIndex}
                 >
                   <div className="w-[52.75rem] overflow-hidden rounded-xl bg-white shadow-lg shadow-slate-900/5 ring-1 ring-slate-500/10">
-                    <Image
+                    <img
                       className="w-full"
                       src={feature.image}
                       alt=""
