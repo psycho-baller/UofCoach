@@ -14,7 +14,7 @@ export default function SearchBox({
 
   return (
     <Combobox as="div" value={selectedCourse} onChange={setSelectedCourse}>
-      <Combobox.Label className="block text-sm font-medium text-gray-700">
+      <Combobox.Label className="block text-xs sm:text-sm font-medium text-gray-700">
         Course Subject you need help with
       </Combobox.Label>
       <div className="relative mt-1">

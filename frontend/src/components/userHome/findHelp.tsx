@@ -45,9 +45,10 @@ export default function Page() {
         action="/api/findHelp"
         method="POST"
         onSubmit={handleSubmit}
-        className="space-y-5"
+        className="space-y-7"
       >
-        <div className={`flex ${courseSelectionStyling}`}>
+        {/* course selection */}
+        <div className={`flex ${courseSelectionStyling} space-x-2`}>
           <SearchBoxCourse
             selectedCourse={selectedCourseSubject}
             setSelectedCourse={setSelectedCourseSubject}
@@ -58,26 +59,40 @@ export default function Page() {
             setSelectedNumber={setSelectedCourseNumber}
           />
         </div>
+        {/* description */}
         <div className="">
           <TextArea description={description} setDescription={setDescription} />
         </div>
         <div className="grid grid-cols-12 xl:gap-8 lg:gap-6 gap-4 ">
           {/* location */}
-          <Input name="location" className="sm:col-span-6 col-span-12" />
+          <Input
+            name="location"
+            placeholder="Zoom"
+            className="sm:col-span-6 col-span-12"
+          />
           {/* pay */}
-          <Input name="Minimum Pay/hr" className="sm:col-span-3 col-span-6" />
-          <Input name="Maximum Pay/hr" className="sm:col-span-3 col-span-6" />
+          <Input
+            name="Minimum Pay/hr"
+            placeholder="0"
+            className="sm:col-span-3 col-span-6"
+          />
+          <Input
+            name="Maximum Pay/hr"
+            placeholder="30"
+            className="sm:col-span-3 col-span-6"
+          />
           {/* date and time */}
-          <div className="col-span-24 sm:col-span-12 sm:flex sm:justify-evenly">
-            <DateTimeInput name="Start Time" className="grid" />
-            <DateTimeInput name="End Time" className="" />
+          <div className="col-span-12 flex flex-col sm:flex-row sm:justify-evenly space-y-3 sm:space-y-0">
+            <DateTimeInput name="Start Time" className="mx-auto" />
+            {/* TODO: the end time should be after the start time */}
+            <DateTimeInput name="End Time" className="mx-auto" />
           </div>
         </div>
         {/* submit button */}
         <div className="flex justify-center">
           <button
             type="submit"
-            className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+            className="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-red-700 border border-transparent rounded-md hover:hover:bg-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
           >
             Submit
           </button>

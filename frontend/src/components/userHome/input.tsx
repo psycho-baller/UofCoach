@@ -1,17 +1,23 @@
 export default function Input({
   name,
+  placeholder,
   ...props
 }: {
   name: string;
+  placeholder: string;
   [key: string]: any;
 }) {
   return (
     <div {...props}>
-      <label htmlFor={name} className="block text-sm font-medium text-gray-700">
+      <label
+        htmlFor={name}
+        className="block text-sm font-medium text-gray-700 capitalize"
+      >
         {name}
       </label>
       <div className="mt-1">
         <input
+          placeholder={placeholder}
           type="text"
           name={name}
           id={name}

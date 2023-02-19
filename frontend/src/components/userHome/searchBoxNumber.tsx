@@ -16,7 +16,7 @@ export default function SearchBox({
   if (!selectedSubject) return null;
   return (
     <Combobox as="div" value={selectedNumber} onChange={setSelectedNumber}>
-      <Combobox.Label className="block text-sm font-medium text-gray-700">
+      <Combobox.Label className="block text-xs sm:text-sm font-medium text-gray-700">
         Course number you need help with
       </Combobox.Label>
       <div className="relative mt-1">
