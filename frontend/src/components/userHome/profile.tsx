@@ -1,8 +1,79 @@
 import Layout from './layout';
 import { classNames } from 'src/utils';
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import { Switch } from '@headlessui/react';
+import { ListBulletIcon } from '@heroicons/react/24/outline';
 // import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
+
+function CourseBullet({name}: any) {
+
+  const [invisible, setInvisible] = useState(false);
+
+  const removeElement = (e: { preventDefault: () => void; }) => {
+    setInvisible(true);
+    e.preventDefault()
+  };
+
+  return (
+    <>   
+      {!invisible && 
+      <div className="flex flex-row mt-2">
+      <p className="text-sm text-gray-500 mr-10">{name}</p>
+      <button onClick={removeElement} className='text-red-600 text-sm'>
+        [Remove]
+      </button>
+    </div> }
+
+    </>
+
+  )
+}
+
+
+function CourseList() {
+  const [courses, setCourses] = useState([
+    { name: 'CPSC 331' },
+    { name: 'MATH 271' },
+    { name: 'SENG 300' },
+    { name: 'CPSC 251' },
+  ]);
+
+  const [newCourse, setNewCourse] = useState('');
+
+  const handleAddCourse = (e: { preventDefault: () => void; }) => {
+    e.preventDefault()
+
+    if (newCourse !== '') {
+      setCourses([...courses, { name: newCourse }]);
+      setNewCourse('');
+    }
+  };
+
+  const handleInputChange = (event: any) => {
+    setNewCourse(event.target.value);
+  };
+
+  return (
+    <div>
+      {courses.map((course, index) => (
+        <CourseBullet key={index} name={course.name} />
+      ))}
+
+      <div className="flex flex-row mt-5">
+        <input
+          defaultValue={'...'}
+          value={newCourse}
+          onChange={handleInputChange}
+          className="w-28 text-sm text-gray-500"
+          type="text"
+        />
+        <button onClick={handleAddCourse} className="text-sm ml-3 text-blue-600">
+          [Add course]
+        </button>
+      </div>
+    </div>
+  );
+}
 
 export default function Settings() {
   const [availableToHire, setAvailableToHire] = useState(true);
@@ -18,8 +89,6 @@ export default function Settings() {
             <div className="divide-y divide-gray-200 lg:grid lg:grid-cols-12 lg:divide-y-0 lg:divide-x">
               <form
                 className="divide-y divide-gray-200 lg:col-span-12"
-                action="#"
-                method="POST"
               >
                 {/* Profile section */}
                 <div className="py-6 px-4 sm:p-6 lg:pb-8">
@@ -93,7 +162,7 @@ export default function Settings() {
                           >
                             <img
                               className="h-full w-full rounded-full"
-                              src={'user.imageUrl'}
+                              src={'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'}
                               alt=""
                             />
                           </div>
@@ -120,9 +189,11 @@ export default function Settings() {
                       <div className="relative hidden overflow-hidden rounded-full lg:block">
                         <img
                           className="relative h-40 w-40 rounded-full"
-                          src={'user.imageUrl'}
+                          src={'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'}
                           alt=""
                         />
+
+
                         <label
                           htmlFor="desktop-user-photo"
                           className="absolute inset-0 flex h-full w-full items-center justify-center bg-black bg-opacity-75 text-sm font-medium text-white opacity-0 focus-within:opacity-100 hover:opacity-100"
@@ -200,7 +271,7 @@ export default function Settings() {
                   <div className="px-4 sm:px-6">
                     <div>
                       <h2 className="text-lg font-medium leading-6 text-gray-900">
-                        User settings
+                        Tutoring settings
                       </h2>
 
                     </div>
@@ -256,78 +327,27 @@ export default function Settings() {
                             Set an hourly tutoring rate that you would like to be displayed to others.
                           </Switch.Description>
                         </div>
-                        <input className='w-20' type="text" />
+                        <input defaultValue={'0'} className='w-20' type="text" />
                         <p className='pl-2'>$CAD</p>
                       </Switch.Group>
                       <Switch.Group
                         as="li"
                         className="flex items-center justify-between py-4"
                       >
-                        <div className="flex flex-col">
-                          <Switch.Label
-                            as="p"
-                            className="text-sm font-medium text-gray-900"
-                            passive
-                          >
-                            Allow commenting
-                          </Switch.Label>
-                          <Switch.Description className="text-sm text-gray-500">
-                            Integer amet, nunc hendrerit adipiscing nam.
-                            Elementum ame
-                          </Switch.Description>
-                        </div>
-                        <Switch
-                          checked={allowCommenting}
-                          onChange={setAllowCommenting}
-                          className={classNames(
-                            allowCommenting ? 'bg-teal-500' : 'bg-gray-200',
-                            'relative ml-4 inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2'
-                          )}
-                        >
-                          <span
-                            aria-hidden="true"
-                            className={classNames(
-                              allowCommenting
-                                ? 'translate-x-5'
-                                : 'translate-x-0',
-                              'inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out'
-                            )}
-                          />
-                        </Switch>
-                      </Switch.Group>
-                      <Switch.Group
-                        as="li"
-                        className="flex items-center justify-between py-4"
-                      >
-                        <div className="flex flex-col">
-                          <Switch.Label
-                            as="p"
-                            className="text-sm font-medium text-gray-900"
-                            passive
-                          >
-                            Allow mentions
-                          </Switch.Label>
-                          <Switch.Description className="text-sm text-gray-500">
-                            Adipiscing est venenatis enim molestie commodo eu
-                            gravid
-                          </Switch.Description>
-                        </div>
-                        <Switch
-                          checked={allowMentions}
-                          onChange={setAllowMentions}
-                          className={classNames(
-                            allowMentions ? 'bg-teal-500' : 'bg-gray-200',
-                            'relative ml-4 inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2'
-                          )}
-                        >
-                          <span
-                            aria-hidden="true"
-                            className={classNames(
-                              allowMentions ? 'translate-x-5' : 'translate-x-0',
-                              'inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out'
-                            )}
-                          />
-                        </Switch>
+                      <div className="flex flex-col">
+                        <Switch.Label 
+                          as="p"
+                          className="text-sm font-medium text-gray-900"
+                          passive>
+                          Courses you are interested in tutoring:
+                        </Switch.Label>
+
+                        <CourseList></CourseList>
+
+
+                      </div>
+                      
+
                       </Switch.Group>
                     </ul>
                   </div>
@@ -354,3 +374,7 @@ export default function Settings() {
     </Layout>
   );
 }
+function props(props: any) {
+  throw new Error('Function not implemented.');
+}
+
