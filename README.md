@@ -1,7 +1,7 @@
 # UofCoach
 
 * UofCoach is a tutoring app designed specifically for University of Calgary students who need a little extra help with their coursework. The app connects students with other students who are knowledgeable in the courses they need tutoring in. While our tutors may not have years of experience, they're passionate about helping their peers succeed. UofCoach is an affordable and accessible way to get the support you need to ace your classes.
-.
+..
 ## Team
 
 * Rami Malouf
