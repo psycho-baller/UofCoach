@@ -6,7 +6,7 @@ from flask import Blueprint, request, session
 auth = Blueprint("auth", __name__, url_prefix="/auth")
 
 loginManager.user_loader(lambda uid: User.query.get(uid))
-loginManager.unauthorized_handler(lambda: {"error": "Unauthorized"}, 401)
+loginManager.unauthorized_handler(lambda: ({"error": "Unauthorized"}, 401))
 
 #
 # POST
@@ -74,3 +74,9 @@ def login():
 @auth.route("/isloggedin", methods=["GET"])
 def isLoggedIn():
 	return {"loggedin": "user_id" in session}, 200
+
+# Logout
+@auth.route("/logout", methods=["GET"])
+def logout():
+	session.pop("user_id", None)
+	return {"message": "Logout successful"}, 200
