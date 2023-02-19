@@ -23,7 +23,6 @@ def getUsers(tutor : bool = None):
 	if tutor is not None:
 		if tutor not in [True, False, "true", "1", "false", "0"]:
 			return {"error": f"'{tutor}' is not a valid value for tutor (boolean)"}, 400
-		print(tutor in [True, "true", "1"])
 		filters.append(User.is_tutor == (tutor in [True, "true", "1"]))
 
 	courses = list(dict.fromkeys(request.args.getlist("course", type=int)))

@@ -1,6 +1,7 @@
 from app import app
 from app.routes.auth import *
 from app.routes.users import *
+from app.routes.sessions import *
 from app.constants import ERROR_MESSAGES
 
 from werkzeug.exceptions import HTTPException
@@ -21,3 +22,4 @@ def test():
 
 app.register_blueprint(auth)
 app.register_blueprint(user)
+app.register_blueprint(session)
