@@ -32,3 +32,5 @@ loginManager = LoginManager(app)
 @app.route("/")
 def test():
 	return "Hello World"
+
+from app import models, routes
