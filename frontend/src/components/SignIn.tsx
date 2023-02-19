@@ -2,6 +2,11 @@ import { Logo } from './Logo'
 
 
 export default function SignIn() {
+
+    const handlePostForm = (e: React.FormEvent) => {
+    }
+
+
     return (
       <>
         <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -17,7 +22,7 @@ export default function SignIn() {
   
           <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
             <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-              <form className="space-y-6" action="#" method="POST">
+              <form className="space-y-6" action="/dashboard" method="POST">
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                     Username
@@ -87,4 +92,8 @@ export default function SignIn() {
       </>
     )
   }
+
+function props(props: any) {
+    throw new Error('Function not implemented.');
+}
   

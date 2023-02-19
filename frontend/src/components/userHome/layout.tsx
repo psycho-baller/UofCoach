@@ -223,7 +223,7 @@ export default function Example({
               </nav>
             </div>
             <div className="flex flex-shrink-0 bg-gray-700 p-4">
-              <a href="#" className="group block w-full flex-shrink-0">
+              <a href="/profile" className="group block w-full flex-shrink-0">
                 <div className="flex items-center">
                   <div>
                     <img

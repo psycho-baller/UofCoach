@@ -1,9 +1,27 @@
 import { userInfo } from 'os'
 import { Logo } from './Logo'
 
-// username, email, password, firstname, lastname, phonenumber
-
 export default function Register() {
+
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     const formData = new FormData(event.target);
+    //     const data = Object.fromEntries(formData.entries());
+    //     fetch('/api/register', {
+    //     method: 'POST',
+    //     headers: {
+    //     'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify(data)
+    //     })
+    //     .then(response => {
+    //     // handle response
+    //     })
+    //     .catch(error => {
+    //     // handle error
+    //     });
+    // }
+
     return (
       <>
         <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
