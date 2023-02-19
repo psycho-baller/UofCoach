@@ -1,6 +1,7 @@
 
-export function Logo(props: any) {
+export function Logo({...props}) {
   return (
-    <img src="Logo.svg" alt="logo" className='h-12 mb-7' />
+    <img src="Logo.svg" alt="logo" {...props}
+     />
   )
 }

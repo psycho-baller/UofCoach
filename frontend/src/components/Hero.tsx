@@ -18,9 +18,12 @@ export function Hero() {
           <span className="relative">magic!</span>
         </span>{' '}
       </h1>
-      <button className="mt-10 bg-[#d6001c] rounded-full p-2.5 hover:bg-red-500 text-white pr-5 pl-5">
-            Get started now!
-          </button>
+      <a href="/register">
+        <button className="mt-10 bg-[#d6001c] rounded-full p-2.5 hover:bg-red-500 text-white pr-5 pl-5">
+          Get started now!
+        </button>
+      </a>
+
       <p className="mx-auto mt-6 max-w-xl text-lg tracking-tight text-slate-700 ">
         UofCoach is a platform that effortlessly connects tutors with tutees at the University of Calgary. <span className='text-[#d6001c]'>Learn more!</span> 
       </p>

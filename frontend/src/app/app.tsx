@@ -7,6 +7,9 @@ import Availability from 'src/components/userHome/availability';
 import ScheduleHelp from 'src/components/userHome/scheduleHelp';
 import TutorScheduleHelp from 'src/components/userHome/tutorScheduleHelp';
 import TutorFindHelp from 'src/components/userHome/tutorFindHelp';
+import SignIn from 'src/components/SignIn';
+import Register from 'src/components/Register';
+
 export function App() {
   return (
     <>
@@ -22,6 +25,10 @@ export function App() {
           element={<TutorScheduleHelp />}
         ></Route>
         <Route path="/availability" element={<Availability />}></Route>
+        <Route path="/signin" element={<SignIn />}></Route>
+        <Route path="/register" element={<Register />}></Route>
+
+
       </Routes>
     </>
   );

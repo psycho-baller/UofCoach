@@ -22,9 +22,12 @@ export function CallToAction() {
           <p className="mt-4 text-lg tracking-tight text-white">
           Create an account now and find a tutor, or tutor others, or do both!
           </p>
-          <button color="white" className="mt-10 bg-white rounded-full p-2.5 hover:bg-gray-300">
-            Get started now!
-          </button>
+          <a href="/register">
+            <button color="white" className="mt-10 bg-white rounded-full p-2.5 hover:bg-gray-300">
+              Get started now!
+            </button>
+          </a>
+
         </div>
       </Container>
     </section>
