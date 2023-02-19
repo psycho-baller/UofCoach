@@ -8,10 +8,10 @@ import clsx from 'clsx'
 
 const features = [
   {
-    name: 'Reporting',
-    summary: 'Stay on top of things with always up-to-date reporting features.',
+    name: 'Instant',
+    summary: 'Instantly connect with a tutor.',
     description:
-      'We talked about reporting in the section above but we needed three items here, so mentioning it one more time for posterity.',
+      'Immediately connect with someone who will be able to immediately assist you in any UofC course.',
     image: screenshotProfitLoss,
     icon: function ReportingIcon() {
       let id = useId()
@@ -42,11 +42,11 @@ const features = [
     },
   },
   {
-    name: 'Inventory',
+    name: 'Scheduling',
     summary:
-      'Never lose track of what’s in stock with accurate inventory tracking.',
+      'Schedule times for your tutoring sessions.',
     description:
-      'We don’t offer this as part of our software but that statement is inarguably true. Accurate inventory tracking would help you for sure.',
+      'Use our built-in scheduling feature to meet up with your tutor / tutee for recurrent or one-time appointment.',
     image: screenshotInventory,
     icon: function InventoryIcon() {
       return (
@@ -70,11 +70,11 @@ const features = [
     },
   },
   {
-    name: 'Contacts',
+    name: 'Earn',
     summary:
-      'Organize all of your contacts, service providers, and invoices in one place.',
+      'Earn money through tutoring.',
     description:
-      'This also isn’t actually a feature, it’s just some friendly advice. We definitely recommend that you do this, you’ll feel really organized and professional.',
+      'You can choose to indicate an hourly rate on your profile section.',
     image: screenshotContacts,
     icon: function ContactsIcon() {
       return (
@@ -94,6 +94,18 @@ const features = [
   },
 ]
 
+// function TheIcon( { name }: any ) {
+//   console.log(name)
+//   if (name = '') {
+//     return(<svg width="35px" height="35px" viewBox="-112 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M209.2 233.4l-108-31.6C88.7 198.2 80 186.5 80 173.5c0-16.3 13.2-29.5 29.5-29.5h66.3c12.2 0 24.2 3.7 34.2 10.5 6.1 4.1 14.3 3.1 19.5-2l34.8-34c7.1-6.9 6.1-18.4-1.8-24.5C238 74.8 207.4 64.1 176 64V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48h-2.5C45.8 64-5.4 118.7.5 183.6c4.2 46.1 39.4 83.6 83.8 96.6l102.5 30c12.5 3.7 21.2 15.3 21.2 28.3 0 16.3-13.2 29.5-29.5 29.5h-66.3C100 368 88 364.3 78 357.5c-6.1-4.1-14.3-3.1-19.5 2l-34.8 34c-7.1 6.9-6.1 18.4 1.8 24.5 24.5 19.2 55.1 29.9 86.5 30v48c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-48.2c46.6-.9 90.3-28.6 105.7-72.7 21.5-61.6-14.6-124.8-72.5-141.7z"/></svg>)
+//   } else if (name = 'Earn') {
+//     return (<svg width="35" height="35" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm0 11h6v1h-7v-9h1v8z"/></svg>)
+//   } else {
+//     return (<svg width="35" height="35" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm0 11h6v1h-7v-9h1v8z"/></svg>)
+//   }
+// }
+
+
 function Feature({ feature, isActive, className, ...props }: any) {
   return (
     <div
@@ -106,9 +118,12 @@ function Feature({ feature, isActive, className, ...props }: any) {
           isActive ? 'bg-[#d6001c]' : 'bg-slate-500'
         )}
       >
-        <svg aria-hidden="true" className="h-9 w-9" fill="none">
-          <feature.icon />
-        </svg>
+
+
+        
+      
+
+        
       </div>
       <h3
         className={clsx(
@@ -214,11 +229,10 @@ export function SecondaryFeatures() {
       <Container>
         <div className="mx-auto max-w-2xl md:text-center">
           <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
-            Simplify everyday business tasks.
+            A mutually beneficial exchange.
           </h2>
           <p className="mt-4 text-lg tracking-tight text-slate-700">
-            Because you’d probably be a little confused if we suggested you
-            complicate your everyday business tasks instead.
+            Tutors need money and experience. Tutees need tutors. UofCourse provides a platform for everyone to come together and get what they need.
           </p>
         </div>
         <FeaturesMobile />

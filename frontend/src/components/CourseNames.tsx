@@ -5,11 +5,11 @@ function Course({top=true,children}: any) {
 
     if (top) {
         return (
-            <div className="mr-20 p-5 rounded-3xl drop-shadow-xl bg-orange-50 font-bold border-1  ">{children}</div>
+            <div className="mr-20 p-5 rounded-3xl drop-shadow-xl bg-orange-200 font-bold border-1  ">{children}</div>
         )
     } else {
         return (
-            <div className="mr-20 mt-40 p-5 rounded-3xl drop-shadow-xl bg-orange-50 font-bold border-1 ">{children}</div>
+            <div className="mr-20 mt-40 p-5 rounded-3xl drop-shadow-xl bg-orange-200 font-bold border-1 ">{children}</div>
         )
     }
     

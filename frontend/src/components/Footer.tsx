@@ -11,8 +11,7 @@ export function Footer() {
           <nav className="mt-10 text-sm" aria-label="quick links">
             <div className="-my-1 flex justify-center gap-x-6">
               <NavLink href="#features">Features</NavLink>
-              <NavLink href="#testimonials">Testimonials</NavLink>
-              <NavLink href="#pricing">Pricing</NavLink>
+              <NavLink href="https://github.com/psycho-baller/UofCoach" target="_blank" rel="noopener noreferrer">Source code</NavLink>
             </div>
           </nav>
         </div>

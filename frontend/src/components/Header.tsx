@@ -98,8 +98,7 @@ export function Header() {
             </a>
             <div className="hidden md:flex md:gap-x-6">
               <NavLink href="#features">Features</NavLink>
-              <NavLink href="#testimonials">Testimonials</NavLink>
-              <NavLink href="#pricing">Pricing</NavLink>
+              <NavLink href="https://github.com/psycho-baller/UofCoach" target="_blank" rel="noopener noreferrer">Source code</NavLink>
             </div>
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
@@ -107,7 +106,7 @@ export function Header() {
               <NavLink href="/login">Sign in</NavLink>
             </div>
             <button color="blue">
-              <span>
+              <span className='text-[#d6001c]'>
                 Get started <span className="hidden lg:inline">today</span>
               </span>
             </button>
