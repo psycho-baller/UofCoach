@@ -1,19 +1,27 @@
 from app import db
 
 class User(db.Model):
-    __tablename__ = 'users'
+	__tablename__ = "user"
 
-    user_id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(50), unique=True)
-    password =db.Column(db.String(50))
-    username =db.Column(db.String(50), unique=True)
-    first_name =db.Column(db.String(50))
-    last_name =db.Column(db.String(50))
-    phone_number =db.Column(db.String(20))
-    is_tutor =db.Column(db.Boolean)
-    hourly_rate =db.Column(db.DECIMAL)
-    bio =db.Column(db.Text)
-    rating =db.Column(db.DECIMAL)
-    course_code =db.Column(db.String(10))
+	id = db.Column(db.Integer, primary_key=True)
+	username = db.Column(db.String(50), nullable=False, unique=True)
+	email = db.Column(db.String(50), nullable=False, unique=True)
+	password = db.Column(db.String(50), nullable=False)
+	first_name = db.Column(db.String(50), nullable=False)
+	last_name = db.Column(db.String(50))
+	phone_number = db.Column(db.String(20))
+	is_tutor = db.Column(db.Boolean, nullable=False, default=False)
 
+	hourly_rate = db.Column(db.Numeric(precision=5, scale=2))
+	rating = db.Column(db.Numeric(precision=4, scale=3))
+	bio = db.Column(db.Text)
 
+	# sessions = db.relationship("Session", backref="users")
+
+	def __init__(self, username, email, password, first_name, last_name=None, phone_number=None):
+		self.username = username
+		self.email = email
+		self.password = password
+		self.first_name = first_name
+		self.last_name = last_name
+		self.phone_number = phone_number

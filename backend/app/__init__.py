@@ -33,4 +33,8 @@ loginManager = LoginManager(app)
 def test():
 	return "Hello World"
 
+#
+# Import models and routes
+#
+
 from app import models, routes

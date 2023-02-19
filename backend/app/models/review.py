@@ -2,8 +2,8 @@ from app import db
 
 class Review(db.Model):
 	__tablename__ = "review"
-	review_id = db.Column(db.Integer, primary_key=True)
-	user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
-	tutor_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
-	rating = db.Column(db.DECIMAL)
+	id = db.Column(db.Integer, primary_key=True)
+	user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+	session_id = db.Column(db.Integer, db.ForeignKey("session.id"))
+	rating = db.Column(db.Numeric(precision=4, scale=3))
 	comment = db.Column(db.Text)

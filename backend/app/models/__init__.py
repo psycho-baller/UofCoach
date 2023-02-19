@@ -1,7 +1,9 @@
-from app import db
+from app import app, db
 
+from app.models.enrollment import Enrollment
+from app.models.review import Review
 from app.models.user import User
 from app.models.session import Session
-from app.models.review import Review
 
-#db.create_all()
+with app.app_context():
+	db.create_all()
