@@ -5235,3 +5235,87 @@ export const courseCodes = {
         "141"
     ]
 } as { [key: string]: string[] }
+
+export const sessions = [
+    {
+        "id": 6,
+        "tutor_id": 3,
+        "user": "McBob",
+        "course_id": 201,
+        "subject_code": "PHIL",
+        "date": "2023-02-25",
+        "start_time": 14,
+        "end_time": 16,
+        "location": "Library",
+        "description": "Review for midterm exam",
+        "rate_per_hr": 50.00,
+        "is_completed": true,
+        "is_paid": true,
+        "is_online": false
+    },
+    {
+        "id": 7,
+        "tutor_id": 2,
+        "user": "McBob",
+        "course_id": 203,
+        "subject_code": "PSYC",
+        "date": "2023-03-01",
+        "start_time": 10,
+        "end_time": 12,
+        "location": "Zoom",
+        "description": "Introduction to calculus",
+        "rate_per_hr": 60.00,
+        "is_completed": false,
+        "is_paid": false,
+        "is_online": true
+    },
+    {
+        "id": 8,
+        "tutor_id": 1,
+        "user": "McBob",
+        "course_id": 331,
+        "subject_code": "CPSC",
+        "date": "2023-03-02",
+        "start_time": 18,
+        "end_time": 20,
+        "location": null,
+        "description": "Discussion on recent research in psychology",
+        "rate_per_hr": 70.00,
+        "is_completed": false,
+        "is_paid": false,
+        "is_online": true
+    },
+    {
+        "id": 9,
+        "tutor_id": 4,
+        "user": "McBob",
+        "course_id": 441,
+        "subject_code": "CPSC",
+        "date": "2023-03-03",
+        "start_time": 15,
+        "end_time": 17,
+        "location": "Student Center",
+        "description": "Group study session for biology exam",
+        "rate_per_hr": 40.00,
+        "is_completed": false,
+        "is_paid": false,
+        "is_online": false
+    },
+    {
+        "id": 10,
+        "tutor_id": 5,
+        "user": "McBob",
+        "course_id": 233,
+        "subject_code": "CPSC",
+        "date": "2023-03-05",
+        "start_time": 9,
+        "end_time": 11,
+        "location": "Lab 302",
+        "description": "Chemistry lab session",
+        "rate_per_hr": 80.00,
+        "is_completed": true,
+        "is_paid": true,
+        "is_online": false
+    }
+
+]
