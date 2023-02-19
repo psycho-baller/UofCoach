@@ -15,41 +15,6 @@ import {
 import { FaRegHandshake } from 'react-icons/fa';
 import { classNames } from 'src/utils';
 
-const navigation = [
-  { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
-  //   { name: 'Settings', href: '/settings', icon: Cog6ToothIcon, current: false },
-  {
-    name: 'Find Help Now',
-    href: '/find-help',
-    icon: QuestionMarkCircleIcon,
-    current: false,
-  },
-  {
-    name: 'Schedule Getting Help',
-    href: '/schedule-help',
-    icon: QuestionMarkCircleIcon,
-    current: false,
-  },
-  {
-    name: 'Help Someone Now',
-    href: 'tutor/find-help',
-    icon: FaRegHandshake,
-    current: false,
-  },
-  {
-    name: 'Schedule Helping Someone',
-    href: 'tutor/schedule-help',
-    icon: FaRegHandshake,
-    current: false,
-  },
-  {
-    name: 'Edit Availability',
-    href: '/availability',
-    icon: CalendarIcon,
-    current: false,
-  },
-];
-
 export default function Example({
   children,
   title,
@@ -59,6 +24,28 @@ export default function Example({
   title: string;
   className?: string;
 }) {
+  let navigation = [
+    { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
+    {
+      name: 'Find Help',
+      href: '/find-help',
+      icon: QuestionMarkCircleIcon,
+      current: false,
+    },
+    {
+      name: 'Help Someone',
+      href: 'tutor/find-help',
+      icon: FaRegHandshake,
+      current: false,
+    },
+    {
+      name: 'Edit Availability',
+      href: '/availability',
+      icon: CalendarIcon,
+      current: false,
+    },
+  ];
+
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -136,6 +123,10 @@ export default function Example({
                       {navigation.map((item) => (
                         <a
                           key={item.name}
+                          onClick={() => {
+                            navigation.forEach((itm) => (itm.current = false));
+                            item.current = true;
+                          }}
                           href={item.href}
                           className={classNames(
                             item.current

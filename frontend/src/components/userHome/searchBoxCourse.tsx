@@ -15,14 +15,13 @@ export default function SearchBox({
   return (
     <Combobox as="div" value={selectedCourse} onChange={setSelectedCourse}>
       <Combobox.Label className="block text-xs sm:text-sm font-medium text-gray-700">
-        Course Subject you need help with
+        Course Subject you want help with
       </Combobox.Label>
       <div className="relative mt-1">
         <Combobox.Input
           className="w-full rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
           onChange={(event) => {
-            // setQuery(event.target.value)
-            // looks through all the Key values in the courseCodes object and filters them based on the query
+            // looks through all the Key values in the courses object and filters them based on the query
             setFilteredCourses(
               Object.keys(courses).filter((course) => {
                 return course

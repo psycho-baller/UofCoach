@@ -5,6 +5,7 @@ import Layout from './layout';
 import SearchBoxCourse from './searchBoxCourse';
 import SearchBoxNumber from './searchBoxNumber';
 import TextArea from './textArea';
+import ToggleSetTime from './toggleSetTime';
 
 export default function Page() {
   const [description, setDescription] = useState('');
@@ -16,6 +17,7 @@ export default function Page() {
     number,
     () => void
   ];
+  const [enabled, setEnabled] = useState(false) as [boolean, () => void];
   // const courseSelectionStyling: string = {selectedCourseSubject ? 'bg-blue-500' : 'bg-gray-500'}
   let courseSelectionStyling = '';
   if (selectedCourseSubject) {
@@ -67,7 +69,7 @@ export default function Page() {
           {/* location */}
           <Input
             name="location"
-            placeholder="Zoom"
+            placeholder="Online"
             className="sm:col-span-6 col-span-12"
           />
           {/* pay */}
@@ -82,11 +84,18 @@ export default function Page() {
             className="sm:col-span-3 col-span-6"
           />
           {/* date and time */}
-          <div className="col-span-12 flex flex-col sm:flex-row sm:justify-evenly space-y-3 sm:space-y-0">
-            <DateTimeInput name="Start Time" className="mx-auto" />
-            {/* TODO: the end time should be after the start time */}
-            <DateTimeInput name="End Time" className="mx-auto" />
-          </div>
+          <ToggleSetTime
+            enabled={enabled}
+            setEnabled={setEnabled}
+            className="col-span-12 flex items-center justify-between"
+          />
+          {!enabled && (
+            <div className="col-span-12 flex flex-col sm:flex-row sm:justify-evenly space-y-3 sm:space-y-0">
+              <DateTimeInput name="Start Time" className="mx-auto" />
+              {/* TODO: the end time should be after the start time */}
+              <DateTimeInput name="End Time" className="mx-auto" />
+            </div>
+          )}
         </div>
         {/* submit button */}
         <div className="flex justify-center">
