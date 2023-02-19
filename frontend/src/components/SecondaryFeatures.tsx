@@ -1,10 +1,10 @@
-import { useId } from 'react'
-import { Tab } from '@headlessui/react'
-import { Container } from './Container'
-import screenshotContacts from '../assets/images/screenshots/contacts.png'
-import screenshotInventory from '../assets/images/screenshots/inventory.png'
-import screenshotProfitLoss from '../assets/images/screenshots/profit-loss.png'
-import clsx from 'clsx'
+import { useId } from 'react';
+import { Tab } from '@headlessui/react';
+import { Container } from './Container';
+import screenshotContacts from '../assets/images/screenshots/contacts.png';
+import screenshotInventory from '../assets/images/screenshots/inventory.png';
+import screenshotProfitLoss from '../assets/images/screenshots/profit-loss.png';
+import clsx from 'clsx';
 
 const features = [
   {
@@ -12,9 +12,9 @@ const features = [
     summary: 'Instantly connect with a tutor.',
     description:
       'Immediately connect with someone who will be able to immediately assist you in any UofC course.',
-    image: screenshotProfitLoss,
+    image: '1.png',
     icon: function ReportingIcon() {
-      let id = useId()
+      let id = useId();
       return (
         <>
           <defs>
@@ -38,16 +38,15 @@ const features = [
             strokeLinejoin="round"
           />
         </>
-      )
+      );
     },
   },
   {
     name: 'Scheduling',
-    summary:
-      'Schedule times for your tutoring sessions.',
+    summary: 'Schedule times for your tutoring sessions.',
     description:
       'Use our built-in scheduling feature to meet up with your tutor / tutee for recurrent or one-time appointment.',
-    image: screenshotInventory,
+    image: '2.png',
     icon: function InventoryIcon() {
       return (
         <>
@@ -66,16 +65,15 @@ const features = [
             fill="#fff"
           />
         </>
-      )
+      );
     },
   },
   {
     name: 'Earn',
-    summary:
-      'Earn money through tutoring.',
+    summary: 'Earn money through tutoring.',
     description:
       'You can choose to indicate an hourly rate on your profile section.',
-    image: screenshotContacts,
+    image: '1.png',
     icon: function ContactsIcon() {
       return (
         <>
@@ -89,10 +87,10 @@ const features = [
             fill="#fff"
           />
         </>
-      )
+      );
     },
   },
-]
+];
 
 // function TheIcon( { name }: any ) {
 //   console.log(name)
@@ -105,7 +103,6 @@ const features = [
 //   }
 // }
 
-
 function Feature({ feature, isActive, className, ...props }: any) {
   return (
     <div
@@ -117,14 +114,7 @@ function Feature({ feature, isActive, className, ...props }: any) {
           'w-9 rounded-lg',
           isActive ? 'bg-[#d6001c]' : 'bg-slate-500'
         )}
-      >
-
-
-        
-      
-
-        
-      </div>
+      ></div>
       <h3
         className={clsx(
           'mt-6 text-sm font-medium',
@@ -138,7 +128,7 @@ function Feature({ feature, isActive, className, ...props }: any) {
       </p>
       <p className="mt-4 text-sm text-slate-600">{feature.description}</p>
     </div>
-  )
+  );
 }
 
 function FeaturesMobile() {
@@ -161,7 +151,7 @@ function FeaturesMobile() {
         </div>
       ))}
     </div>
-  )
+  );
 }
 
 function FeaturesDesktop() {
@@ -216,7 +206,7 @@ function FeaturesDesktop() {
         </>
       )}
     </Tab.Group>
-  )
+  );
 }
 
 export function SecondaryFeatures() {
@@ -232,12 +222,14 @@ export function SecondaryFeatures() {
             A mutually beneficial exchange.
           </h2>
           <p className="mt-4 text-lg tracking-tight text-slate-700">
-            Tutors need money and experience. Tutees need tutors. UofCourse provides a platform for everyone to come together and get what they need.
+            Tutors need money and experience. Tutees need tutors. UofCourse
+            provides a platform for everyone to come together and get what they
+            need.
           </p>
         </div>
         <FeaturesMobile />
         <FeaturesDesktop />
       </Container>
     </section>
-  )
+  );
 }
