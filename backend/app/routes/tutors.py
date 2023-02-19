@@ -32,7 +32,7 @@ def addAvailabilitySlot():
 		return jsonify({"message": "Invalid day_of_week."}), 400
 
 	# Check if start_time is before end_time
-	if not 0 <= day_of_week <= 24:
+	if not 0 <= hour <= 24:
 		return jsonify({"message": "use 24-hour time."}), 400
 
 	# Create availability slot
@@ -43,3 +43,21 @@ def addAvailabilitySlot():
 	db.session.commit()
 
 	return jsonify({"message": "Availability slot added successfully."}), 201
+
+#
+# DELETE
+#
+
+# Delete availability slot
+@tutor.route("/availability/<int:slot_id>", methods=["DELETE"])
+def deleteAvailabilitySlot(slot_id):
+    # Check if availability slot exists
+    slot = Availability.query.filter_by(slot_id=slot_id).first()
+    if not slot:
+        return jsonify({"message": "Availability slot not found."}), 404
+
+    # Delete availability slot from database
+    db.session.delete(slot)
+    db.session.commit()
+
+    return jsonify({"message": "Availability slot deleted successfully."}), 200
