@@ -5,5 +5,5 @@ class Availability(db.Model):
 
 	id = db.Column(db.Integer, primary_key=True)
 	tutor_id = db.Column(db.Integer, db.ForeignKey("user.id"))
-	date = db.Column(db.Integer, nullable=False)
+	day_of_week = db.Column(db.Integer, nullable=False)
 	hour = db.Column(db.Integer, nullable=False)
