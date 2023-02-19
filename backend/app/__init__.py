@@ -29,10 +29,6 @@ migrate = Migrate(app, db)
 bcrypt = Bcrypt(app)
 loginManager = LoginManager(app)
 
-@app.route("/")
-def test():
-	return "Hello World"
-
 #
 # Import models and routes
 #

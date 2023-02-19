@@ -25,3 +25,12 @@ class User(db.Model):
 		self.first_name = first_name
 		self.last_name = last_name
 		self.phone_number = phone_number
+
+	def __iter__(self):
+		yield "id", self.id
+		yield "username", self.username
+		yield "email", self.email
+		yield "first_name", self.first_name
+		yield "last_name", self.last_name
+		yield "phone_number", self.phone_number
+		yield "is_tutor", self.is_tutor
