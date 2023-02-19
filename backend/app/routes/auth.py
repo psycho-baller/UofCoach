@@ -1,9 +1,12 @@
-from app import bcrypt, db
+from app import db, bcrypt, loginManager
 from app.models import User
 
-from flask import Blueprint, request
+from flask import Blueprint, request, session
 
 auth = Blueprint("auth", __name__, url_prefix="/auth")
+
+loginManager.user_loader(lambda uid: User.query.get(uid))
+loginManager.unauthorized_handler(lambda: {"error": "Unauthorized"}, 401)
 
 #
 # POST
@@ -12,31 +15,12 @@ auth = Blueprint("auth", __name__, url_prefix="/auth")
 # Register
 @auth.route("/register", methods=["POST"])
 def register():
-	if "username" in request.json:
-		username = request.json["username"]
-	else:
-		return {"error": "Username not provided"}, 400
-	if "email" in request.json:
-		email = request.json["email"]
-	else:
-		return {"error": "Email not provided"}, 400
-	if "password" in request.json:
-		password = request.json["password"]
-	else:
-		return {"error": "Password not provided"}, 400
-	if "fname" in request.json:
-		firstName = request.json["fname"]
-	else:
-		return {"error": "First name not provided"}, 400
-	lastName = request.json["lname"] if "lname" in request.json else None
-	phone = request.json["phone"] if "phone" in request.json else None
-
-	print(username, type(username))
-	print(email, type(email))
-	print(password, type(password))
-	print(firstName, type(firstName))
-	print(lastName, type(lastName))
-	print(phone, type(phone))
+	username = request.json.get("username")
+	email = request.json.get("email")
+	password = request.json.get("password")
+	firstName = request.json.get("fname")
+	lastName = request.json.get("lastname")
+	phone = request.json.get("phone")
 
 	# Check if user exists with username or email
 	if User.query.filter_by(username=username).first() or User.query.filter_by(email=email).first():
@@ -69,4 +53,24 @@ def register():
 # Login
 @auth.route("/login", methods=["POST"])
 def login():
-	pass
+	username = request.json.get("username")
+	password = request.json.get("password")
+
+	if username is None:
+		return {"error": "username is required"}, 400
+	if password is None:
+		return {"error": "password is required"}, 400
+
+	user = User.query.filter_by(username=username).first()
+
+	if not bcrypt.check_password_hash(user.password, password):
+		return {"error": "Wrong password"}, 401
+
+	session["user_id"] = user.id
+
+	return {"message": "Login successful"}, 200
+
+# Check if logged in
+@auth.route("/isloggedin", methods=["GET"])
+def isLoggedIn():
+	return {"loggedin": "user_id" in session}, 200

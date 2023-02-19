@@ -4,6 +4,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_bcrypt import Bcrypt
+from flask_session import Session
 from flask_login import LoginManager
 
 from sqlalchemy.ext.declarative import DeclarativeMeta
@@ -27,6 +28,7 @@ db: DeclarativeMeta = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 bcrypt = Bcrypt(app)
+session = Session(app)
 loginManager = LoginManager(app)
 
 #
