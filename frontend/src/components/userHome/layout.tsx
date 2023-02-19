@@ -13,6 +13,7 @@ import {
   QuestionMarkCircleIcon,
 } from '@heroicons/react/24/outline';
 import { FaRegHandshake } from 'react-icons/fa';
+import { classNames } from 'src/utils';
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
@@ -48,10 +49,6 @@ const navigation = [
     current: false,
   },
 ];
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ');
-}
 
 export default function Example({
   children,
