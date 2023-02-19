@@ -26,6 +26,11 @@ def register():
 	if User.query.filter_by(username=username).first() or User.query.filter_by(email=email).first():
 		return {"error": "User already exists"}, 400
 
+	if username and len(username) < 4:
+		return {"error": "Username must be at least 4 characters"}, 400
+	if password and len(password) < 8:
+		return {"error": "Password must be at least 8 characters"}, 400
+
 	# Create user
 	try:
 		user = User(
@@ -44,6 +49,8 @@ def register():
 		db.session.commit()
 	except Exception as e:
 		return {"error": f"Error adding user to database: {e}"}, 400
+
+	session["user_id"] = user.id
 
 	return {
 		"message": "User created successfully",
