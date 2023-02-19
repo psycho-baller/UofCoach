@@ -25,12 +25,12 @@ export default function Example({
   className?: string;
 }) {
   let navigation = [
-    { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
+    // { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
     {
       name: 'Find Help',
       href: '/find-help',
       icon: QuestionMarkCircleIcon,
-      current: false,
+      current: true,
     },
     {
       name: 'Help Someone',
@@ -112,9 +112,13 @@ export default function Example({
                     </div>
                   </Transition.Child>
                   <div className="h-0 flex-1 overflow-y-auto pt-5 pb-4">
-                  <div className="flex flex-shrink-0 items-center px-4">
-                <img className="h-8 w-auto" src="Logo.svg" alt="Your Company" />
-              </div>
+                    <div className="flex flex-shrink-0 items-center px-4">
+                      <img
+                        className="h-8 w-auto"
+                        src="Logo.svg"
+                        alt="Your Company"
+                      />
+                    </div>
                     <nav className="mt-5 space-y-1 px-2">
                       {navigation.map((item) => (
                         <a

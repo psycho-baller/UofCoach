@@ -33,7 +33,7 @@ export default function DateTimeInput({
           onChange={(date) => setStartDate(date)}
           showTimeSelect
           filterTime={filterPassedTime}
-          dateFormat="MMMM d, yyyy h:mm aa"
+          dateFormat="MMMM d, yyyy h:mm"
         />
       </div>
     </div>

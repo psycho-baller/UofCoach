@@ -15,7 +15,7 @@ export function App() {
     <>
       <Routes>
         <Route path="/" element={<Welcome />}></Route>
-        <Route path="/dashboard" element={<Dashboard />}></Route>
+        <Route path="/dashboard" element={<FindHelp />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/find-help" element={<FindHelp />}></Route>
         <Route path="/schedule-help" element={<ScheduleHelp />}></Route>
