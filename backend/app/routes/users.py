@@ -10,7 +10,7 @@ user = Blueprint("users", __name__, url_prefix="/users")
 #
 
 # Get all users
-@user.route("/", methods=["GET"])
+@user.route("", methods=["GET"])
 def getUsers():
 	return getAll(User)
 

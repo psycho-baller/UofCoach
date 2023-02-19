@@ -3,7 +3,7 @@ from os import getenv
 
 load_dotenv()
 
-dbURI = lambda type, host, port, name, user, password: f"{type}://{user}:{password}@{host}:{port}/{name}"
+dbURI = lambda type, host, port, name, user, pssw: f"{type}://{user}:{pssw}@{host}:{port}/{name}"
 
 class Config:
 	SQLALCHEMY_TRACK_MODIFICATIONS = False
