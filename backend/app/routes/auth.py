@@ -10,6 +10,15 @@ loginManager.user_loader(lambda uid: User.query.get(uid))
 loginManager.unauthorized_handler(lambda: ({"error": "Unauthorized"}, 401))
 
 #
+# GET
+#
+
+# Check if logged in
+@auth.route("/verify", methods=["GET"])
+def isLoggedIn():
+	return {"loggedin": current_user.is_authenticated}, 200
+
+#
 # POST
 #
 
@@ -77,11 +86,6 @@ def login():
 	login_user(user)
 
 	return {"message": "Login successful"}, 200
-
-# Check if logged in
-@auth.route("/isloggedin", methods=["GET"])
-def isLoggedIn():
-	return {"loggedin": current_user.is_authenticated}, 200
 
 # Logout
 @auth.route("/logout", methods=["POST"])

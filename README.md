@@ -128,7 +128,7 @@ $ npm start
 
 ### Authentication
 
-* **GET** `/api/auth/isloggedin`
+* **GET** `/api/auth/verify`
 
 * **POST** `/api/auth/register`
 * **POST** `/api/auth/login`
