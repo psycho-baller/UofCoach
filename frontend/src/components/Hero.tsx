@@ -25,7 +25,7 @@ export function Hero() {
       </a>
 
       <p className="mx-auto mt-6 max-w-xl text-lg tracking-tight text-slate-700 ">
-        UofCoach is a platform that effortlessly connects tutors with tutees at the University of Calgary. <span className='text-[#d6001c]'>Learn more!</span> 
+        UofCoach is a platform that effortlessly connects tutors with tutees at the University of Calgary. <a href="#features" className='text-[#d6001c]'>Learn more!</a> 
       </p>
       <p className="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-slate-700 ">
         Here are some of the UofC courses that are tutored most often:   
