@@ -1,10 +1,5 @@
 import { Container } from './Container'
-import logoLaravel from '../assets/images/logos/laravel.svg'
-import logoMirage from '../assets/images/logos/mirage.svg'
-import logoStatamic from '../assets/images/logos/statamic.svg'
-import logoStaticKit from '../assets/images/logos/statickit.svg'
-import logoTransistor from '../assets/images/logos/transistor.svg'
-import logoTuple from '../assets/images/logos/tuple.svg'
+import CourseNames from './CourseNames'
 
 export function Hero() {
   return (
@@ -32,7 +27,7 @@ export function Hero() {
       <p className="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-slate-700 ">
         Here are some of the UofC courses that are tutored most often:   
       </p>
-
+      <CourseNames/>
       {/* <div className="mt-10 flex justify-center gap-x-6">
         <button>Get 6 months free</button>
         <button>
