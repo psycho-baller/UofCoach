@@ -26,9 +26,13 @@ export function Hero() {
       <button className="mt-10 bg-[#d6001c] rounded-full p-2.5 hover:bg-red-500 text-white pr-5 pl-5">
             Get started now!
           </button>
-      <p className="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-slate-700 ">
-        UofCoach is a platform that connects tutors with tutees at the University of Calgary. Here are some of the UofC courses that are tutored most often:
+      <p className="mx-auto mt-6 max-w-xl text-lg tracking-tight text-slate-700 ">
+        UofCoach is a platform that effortlessly connects tutors with tutees at the University of Calgary. <span className='text-[#d6001c]'>Learn more!</span> 
       </p>
+      <p className="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-slate-700 ">
+        Here are some of the UofC courses that are tutored most often:   
+      </p>
+
       {/* <div className="mt-10 flex justify-center gap-x-6">
         <button>Get 6 months free</button>
         <button>
