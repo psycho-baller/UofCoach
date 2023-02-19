@@ -3,8 +3,10 @@ import Welcome from 'src/components/welcome';
 import Dashboard from 'src/components/userHome/dashboard';
 import Profile from 'src/components/userHome/profile';
 import FindHelp from 'src/components/userHome/findHelp';
-import HelpSomeone from 'src/components/userHome/helpSomeone';
 import Availability from 'src/components/userHome/availability';
+import ScheduleHelp from 'src/components/userHome/scheduleHelp';
+import TutorScheduleHelp from 'src/components/userHome/tutorScheduleHelp';
+import TutorFindHelp from 'src/components/userHome/tutorFindHelp';
 export function App() {
   return (
     <>
@@ -13,7 +15,12 @@ export function App() {
         <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/find-help" element={<FindHelp />}></Route>
-        <Route path="/help-someone" element={<HelpSomeone />}></Route>
+        <Route path="/schedule-help" element={<ScheduleHelp />}></Route>
+        <Route path="/tutor/find-help" element={<TutorFindHelp />}></Route>
+        <Route
+          path="/tutor/schedule-help"
+          element={<TutorScheduleHelp />}
+        ></Route>
         <Route path="/availability" element={<Availability />}></Route>
       </Routes>
     </>
