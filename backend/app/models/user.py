@@ -10,8 +10,10 @@ class User(db.Model):
 	first_name = db.Column(db.String(50), nullable=False)
 	last_name = db.Column(db.String(50))
 	phone_number = db.Column(db.String(20))
+	reviews = db.relationship("Review", backref="user")
 	is_tutor = db.Column(db.Boolean, nullable=False, default=False)
 
+	availabilitySlots = db.relationship("Availability", backref="user")
 	hourly_rate = db.Column(db.Numeric(precision=5, scale=2))
 	rating = db.Column(db.Numeric(precision=4, scale=3))
 	bio = db.Column(db.Text)
