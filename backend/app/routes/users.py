@@ -1,8 +1,10 @@
-from app.models import db, User, Availability
+from app.models import db, User, Tutorcourse, Availability
 from app.routes.utils import getAll, getById
 
 from flask import Blueprint, request
 from flask_login import login_required, current_user
+
+import requests
 
 user = Blueprint("users", __name__, url_prefix="/users")
 
@@ -23,6 +25,10 @@ def getUsers(tutor : bool = None):
 			return {"error": f"'{tutor}' is not a valid value for tutor (boolean)"}, 400
 		print(tutor in [True, "true", "1"])
 		filters.append(User.is_tutor == (tutor in [True, "true", "1"]))
+
+	courses = list(dict.fromkeys(request.args.getlist("course", type=int)))
+	if len(courses) > 0:
+		filters.append(Tutorcourse.course_id.in_(courses))
 
 	return getAll(User, tuple(filters))
 
@@ -51,11 +57,18 @@ def getCurrentUserAvailability():
 	if not current_user.is_tutor:
 		return {"message": "User is not a tutor."}, 400
 
-	availabilityData = Availability.query.filter_by(tutor_id=current_user.id).all()
+	return {
+		d : [slot.hour for slot in current_user.availabilitySlots if slot.day == d] for d in range(7)
+	}, 200
 
-	availability = {d : [slot.hour for slot in availabilityData if slot.day == d] for d in range(7)}
+# Get current user's teaching courses
+@user.route("/me/courses", methods=["GET"])
+@login_required
+def getCurrentUserCourses():
+	if not current_user.is_tutor:
+		return {"message": "User is not a tutor."}, 400
 
-	return availability, 200
+	return [c.course_id for c in current_user.tutorCourses], 200
 
 #
 # PUT
@@ -92,6 +105,9 @@ def addAvailabilitySlot():
 	if not (hour and hour.isdigit() and 0 <= int(hour) <= 24):
 		return {"message": "Invalid hour, use 24-hour time"}, 400
 
+	if Availability.query.filter_by(tutor_id=current_user.id, day=day, hour=hour).first():
+		return {"message": "Availability slot already exists."}, 400
+
 	# Create availability slot
 	slot = Availability(current_user.id, day, hour)
 
@@ -100,6 +116,33 @@ def addAvailabilitySlot():
 	db.session.commit()
 
 	return {"message": "Availability slot added successfully."}, 201
+
+# Add teaching course
+@user.route("/me/courses", methods=["POST"])
+@login_required
+def addTutorCourse():
+	course_id = request.json.get("course_id")
+
+	if not current_user.is_tutor:
+		return {"message": "User is not a tutor."}, 400
+
+	if not course_id:
+		return {"message": "Missing course_id"}, 400
+
+	if Tutorcourse.query.filter_by(tutor_id=current_user.id, course_id=course_id).first():
+		return {"message": "Course already added."}, 400
+
+	# Check if course exists
+	r = requests.get("https://www.uofcourse.com/api/courses/" + course_id)
+	if r.status_code != 200:
+		return {"message": "Course not found."}, 404
+
+	# Create tutorcourse
+	tutorcourse = Tutorcourse(current_user.id, int(course_id))
+	db.session.add(tutorcourse)
+	db.session.commit()
+
+	return {"message": "Course added successfully."}, 201
 
 #
 # DELETE

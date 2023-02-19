@@ -112,9 +112,11 @@ FLASK_ENV=production
 * **GET** `/api/users/<user_id>`
 * **GET** `api/users/me`
 * **GET** `api/users/me/availability`
+* **GET** `api/users/me/courses`
 
 * **PUT** `api/users/me/maketutor`
 
 * **POST** `api/users/me/availability`
+* **POST** `api/users/me/courses`
 
 * **DELETE** `api/users/me/availability`

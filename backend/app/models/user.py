@@ -16,11 +16,10 @@ class User(db.Model, UserMixin):
 	is_tutor = db.Column(db.Boolean, nullable=False, default=False)
 
 	availabilitySlots = db.relationship("Availability", backref="user")
+	tutorCourses = db.relationship("Tutorcourse", backref="tutor")
 	hourly_rate = db.Column(db.Numeric(precision=5, scale=2))
 	rating = db.Column(db.Numeric(precision=4, scale=3))
 	bio = db.Column(db.Text)
-
-	# sessions = db.relationship("Session", backref="users")
 
 	def __init__(self, username, email, password, first_name, last_name=None, phone_number=None):
 		self.username = username

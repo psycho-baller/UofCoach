@@ -12,7 +12,7 @@ class Session(db.Model):
 	date = db.Column(db.Date, nullable=False)
 	start_time = db.Column(db.Time, nullable=False)
 	end_time = db.Column(db.Time, nullable=False)
-	location = db.Column(db.String(50))
+	location = db.Column(db.String(64))
 	description = db.Column(db.Text)
 	rate_per_hr = db.Column(db.Numeric(precision=5, scale=2))
 	is_completed = db.Column(db.Boolean, nullable=False, default=False)

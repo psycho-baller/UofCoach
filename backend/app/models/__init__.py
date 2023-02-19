@@ -1,6 +1,7 @@
 from app import app, db
 
 from app.models.user import User
+from app.models.tutorcourse import Tutorcourse
 from app.models.availability import Availability
 from app.models.session import Session
 from app.models.review import Review
