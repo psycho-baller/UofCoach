@@ -27,8 +27,7 @@ export function App() {
         <Route path="/availability" element={<Availability />}></Route>
         <Route path="/signin" element={<SignIn />}></Route>
         <Route path="/register" element={<Register />}></Route>
-
-
+        <Route path="/profile" element={<Profile />}></Route>
       </Routes>
     </>
   );

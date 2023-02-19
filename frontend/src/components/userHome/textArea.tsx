@@ -9,7 +9,7 @@ export default function TextArea({
   setDescription: React.Dispatch<React.SetStateAction<string>>;
 }> {
   return (
-    <div className="xl:col-span-10 lg:col-span-11">
+    <div className="">
       <label
         htmlFor="comment"
         className="block text-sm font-medium text-gray-700"

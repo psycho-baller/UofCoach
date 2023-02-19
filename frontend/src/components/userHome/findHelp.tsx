@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import DateTimeInput from './dateTimeInput';
+import Input from './input';
 import Layout from './layout';
 import SearchBoxCourse from './searchBoxCourse';
 import SearchBoxNumber from './searchBoxNumber';
@@ -38,7 +40,7 @@ export default function Page() {
   };
 
   return (
-    <Layout title="Find Help Now">
+    <Layout title="Find Help Now" className="xl:mx-16 lg:mx-12">
       <form
         action="/api/findHelp"
         method="POST"
@@ -56,8 +58,20 @@ export default function Page() {
             setSelectedNumber={setSelectedCourseNumber}
           />
         </div>
-        <div className="lg:grid lg:grid-cols-12">
+        <div className="">
           <TextArea description={description} setDescription={setDescription} />
+        </div>
+        <div className="grid grid-cols-12 xl:gap-8 lg:gap-6 gap-4 ">
+          {/* location */}
+          <Input name="location" className="sm:col-span-6 col-span-12" />
+          {/* pay */}
+          <Input name="Minimum Pay/hr" className="sm:col-span-3 col-span-6" />
+          <Input name="Maximum Pay/hr" className="sm:col-span-3 col-span-6" />
+          {/* date and time */}
+          <div className="col-span-24 sm:col-span-12 sm:flex sm:justify-evenly">
+            <DateTimeInput name="Start Time" className="grid" />
+            <DateTimeInput name="End Time" className="" />
+          </div>
         </div>
         {/* submit button */}
         <div className="flex justify-center">
