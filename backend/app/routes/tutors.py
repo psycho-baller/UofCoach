@@ -1,6 +1,5 @@
 from app import db
 from app.models import User, Availability
-from app.routes.utils import getAll, getById
 
 from flask import Blueprint, request, jsonify
 
@@ -21,19 +20,20 @@ def addAvailabilitySlot():
 	day_of_week = data.get("day_of_week")
 	hour = data.get("hour")
 	
-
 	# Check if tutor_id exists
-	tutor = User.query.filter_by(user_id=tutor_id, is_tutor=True).first()
+	tutor = User.query.get(tutor_id)
 	if not tutor:
-		return jsonify({"message": "Tutor not found."}), 404
+		return {"message": "User not found."}, 404
+	if not tutor.is_tutor:
+		return {"message": "User is not a tutor."}, 400
 
 	# Check if day_of_week is valid
 	if not 0 <= day_of_week <= 6:
-		return jsonify({"message": "Invalid day_of_week."}), 400
+		return {"message": "Invalid day_of_week."}, 400
 
 	# Check if start_time is before end_time
 	if not 0 <= hour <= 24:
-		return jsonify({"message": "use 24-hour time."}), 400
+		return {"message": "use 24-hour time."}, 400
 
 	# Create availability slot
 	slot = Availability(tutor_id=tutor_id, day_of_week=day_of_week,hour=hour)
@@ -42,7 +42,7 @@ def addAvailabilitySlot():
 	db.session.add(slot)
 	db.session.commit()
 
-	return jsonify({"message": "Availability slot added successfully."}), 201
+	return {"message": "Availability slot added successfully."}, 201
 
 #
 # DELETE
@@ -54,10 +54,10 @@ def deleteAvailabilitySlot(slot_id):
     # Check if availability slot exists
     slot = Availability.query.get(slot_id)
     if not slot:
-        return jsonify({"message": "Availability slot not found."}), 404
+        return {"error": "Availability slot not found."}, 404
 
     # Delete availability slot from database
     db.session.delete(slot)
     db.session.commit()
 
-    return jsonify({"message": "Availability slot deleted successfully."}), 200
+    return {"message": "Availability slot deleted successfully"}, 200
