@@ -12,12 +12,12 @@ export default function Settings() {
 
   return (
     <Layout title="Edit your profile">
-      <main className="relative -mt-32">
+      <main className="relative">
         <div className="mx-auto max-w-screen-xl px-4 pb-6 sm:px-6 lg:px-8 lg:pb-16">
           <div className="overflow-hidden rounded-lg bg-white shadow">
             <div className="divide-y divide-gray-200 lg:grid lg:grid-cols-12 lg:divide-y-0 lg:divide-x">
               <form
-                className="divide-y divide-gray-200 lg:col-span-9"
+                className="divide-y divide-gray-200 lg:col-span-12"
                 action="#"
                 method="POST"
               >
@@ -43,16 +43,14 @@ export default function Settings() {
                           Username
                         </label>
                         <div className="mt-1 flex rounded-md shadow-sm">
-                          <span className="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-3 text-gray-500 sm:text-sm">
-                            workcation.com/
-                          </span>
+
                           <input
                             type="text"
                             name="username"
                             id="username"
                             autoComplete="username"
                             className="block w-full min-w-0 flex-grow rounded-none rounded-r-md border-gray-300 focus:border-sky-500 focus:ring-sky-500 sm:text-sm"
-                            defaultValue={'user.handle'}
+                            defaultValue={'Tom Cook'}
                           />
                         </div>
                       </div>
@@ -151,6 +149,7 @@ export default function Settings() {
                         First name
                       </label>
                       <input
+                        defaultValue={'Tom'}
                         type="text"
                         name="first-name"
                         id="first-name"
@@ -167,6 +166,7 @@ export default function Settings() {
                         Last name
                       </label>
                       <input
+                        defaultValue={'Cook'}
                         type="text"
                         name="last-name"
                         id="last-name"
@@ -183,6 +183,7 @@ export default function Settings() {
                         URL
                       </label>
                       <input
+                        defaultValue={'uofcourse.com/Tom_Cook'}
                         type="text"
                         name="url"
                         id="url"
@@ -190,21 +191,7 @@ export default function Settings() {
                       />
                     </div>
 
-                    <div className="col-span-12 sm:col-span-6">
-                      <label
-                        htmlFor="company"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Company
-                      </label>
-                      <input
-                        type="text"
-                        name="company"
-                        id="company"
-                        autoComplete="organization"
-                        className="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm"
-                      />
-                    </div>
+
                   </div>
                 </div>
 
@@ -213,12 +200,9 @@ export default function Settings() {
                   <div className="px-4 sm:px-6">
                     <div>
                       <h2 className="text-lg font-medium leading-6 text-gray-900">
-                        Privacy
+                        User settings
                       </h2>
-                      <p className="mt-1 text-sm text-gray-500">
-                        Ornare eu a volutpat eget vulputate. Fringilla commodo
-                        amet.
-                      </p>
+
                     </div>
                     <ul role="list" className="mt-2 divide-y divide-gray-200">
                       <Switch.Group
@@ -231,11 +215,10 @@ export default function Settings() {
                             className="text-sm font-medium text-gray-900"
                             passive
                           >
-                            Available to hire
+                            Active tutor status
                           </Switch.Label>
                           <Switch.Description className="text-sm text-gray-500">
-                            Nulla amet tempus sit accumsan. Aliquet turpis sed
-                            sit lacinia.
+                            Set whether you want others to be able to see you listed under courses as an active tutor.
                           </Switch.Description>
                         </div>
                         <Switch
@@ -267,31 +250,14 @@ export default function Settings() {
                             className="text-sm font-medium text-gray-900"
                             passive
                           >
-                            Make account private
+                            Hourly rate
                           </Switch.Label>
                           <Switch.Description className="text-sm text-gray-500">
-                            Pharetra morbi dui mi mattis tellus sollicitudin
-                            cursus pharetra.
+                            Set an hourly tutoring rate that you would like to be displayed to others.
                           </Switch.Description>
                         </div>
-                        <Switch
-                          checked={privateAccount}
-                          onChange={setPrivateAccount}
-                          className={classNames(
-                            privateAccount ? 'bg-teal-500' : 'bg-gray-200',
-                            'relative ml-4 inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2'
-                          )}
-                        >
-                          <span
-                            aria-hidden="true"
-                            className={classNames(
-                              privateAccount
-                                ? 'translate-x-5'
-                                : 'translate-x-0',
-                              'inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out'
-                            )}
-                          />
-                        </Switch>
+                        <input className='w-20' type="text" />
+                        <p className='pl-2'>$CAD</p>
                       </Switch.Group>
                       <Switch.Group
                         as="li"
