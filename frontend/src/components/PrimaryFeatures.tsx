@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Tab } from '@headlessui/react'
 
 import { Container } from './Container'
-import backgroundImage from '../assets/images/background-features.jpg'
+import backgroundImage from '../assets/images/orange.jpg'
 import screenshotExpenses from '../assets/images/screenshots/expenses.png'
 import screenshotPayroll from '../assets/images/screenshots/payroll.png'
 import screenshotReporting from '../assets/images/screenshots/reporting.png'
@@ -11,27 +11,27 @@ import clsx from 'clsx'
 
 const features = [
   {
-    title: 'Payroll',
+    title: 'Search for tutors',
     description:
-      "Keep track of everyone's salaries and whether or not they've been paid. Direct deposit not supported.",
+      "Search for tutors by inputting any course to see all of the tutors who are available to help.",
     image: screenshotPayroll,
   },
   {
-    title: 'Claim expenses',
+    title: 'Tutor courses',
     description:
-      "All of your receipts organized into one place, as long as you don't mind typing in the data by hand.",
+      "Select courses that you are willing to tutor to be shown on those courses' tutor listing.",
     image: screenshotExpenses,
   },
   {
-    title: 'VAT handling',
+    title: 'Communicate',
     description:
-      "We only sell our software to companies who don't deal with VAT at all, so technically we do all the VAT stuff they need.",
+      "We provide a direct message service as a means of communication between tutors and tutees.",
     image: screenshotVatReturns,
   },
   {
-    title: 'Reporting',
+    title: 'Dual benefit',
     description:
-      'Easily export your data into an Excel spreadsheet where you can do whatever the hell you want with it.',
+      'You can be a tutor, a tutee, or both. Tutor one course while being tutored for another. There are no limitations!',
     image: screenshotReporting,
   },
 ]
@@ -70,12 +70,11 @@ export function PrimaryFeatures() {
       <Container className="relative">
         <div className="max-w-2xl md:mx-auto md:text-center xl:max-w-none">
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl md:text-5xl">
-            Everything you need to run your books.
+            Find tutors you need or tutor those who need you.
           </h2>
-          <p className="mt-6 text-lg tracking-tight text-blue-100">
-            Well everything you need if you aren’t that picky about minor
-            details like tax compliance.
-          </p>
+          <h2 className="mt-6 text-3xl tracking-tight text-blue-100">
+            Or do both!
+          </h2>
         </div>
         <Tab.Group
           as="div"

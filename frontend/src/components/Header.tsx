@@ -2,7 +2,7 @@ import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 
 import { Container } from './Container'
-//import { Logo } from '@/components/Logo'
+import { Logo } from './Logo'
 import { NavLink } from './NavLink'
 import clsx from 'clsx'
 
@@ -94,7 +94,7 @@ export function Header() {
         <nav className="relative z-50 flex justify-between">
           <div className="flex items-center md:gap-x-12">
             <a href="#" aria-label="Home">
-              {/*<Logo className="h-10 w-auto" />*/}
+              <Logo className="" />
             </a>
             <div className="hidden md:flex md:gap-x-6">
               <NavLink href="#features">Features</NavLink>
