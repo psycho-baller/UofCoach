@@ -3,7 +3,7 @@ import CourseNames from './CourseNames'
 
 export function Hero() {
   return (
-    <Container className="pt-20 pb-16 text-center lg:pt-32 section">
+    <Container className="pt-10 pb-16 text-center lg:pt-16 section">
       <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl">
         Amplify your UofC learning experience with our tutoring{' '}
         <span className="relative whitespace-nowrap text-[#d6001c]">
