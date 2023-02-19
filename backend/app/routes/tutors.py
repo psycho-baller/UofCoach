@@ -52,7 +52,7 @@ def addAvailabilitySlot():
 @tutor.route("/availability/<int:slot_id>", methods=["DELETE"])
 def deleteAvailabilitySlot(slot_id):
     # Check if availability slot exists
-    slot = Availability.query.filter_by(slot_id=slot_id).first()
+    slot = Availability.query.get(slot_id)
     if not slot:
         return jsonify({"message": "Availability slot not found."}), 404
 
