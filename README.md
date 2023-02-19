@@ -95,3 +95,26 @@ FLASK_ENV=production
 
 ### Frontend
 
+## Backend API endpoints
+
+### Authentication
+
+* **GET** `/api/auth/isloggedin`
+
+* **POST** `/api/auth/register`
+* **POST** `/api/auth/login`
+* **POST** `/api/auth/logout`
+
+### User
+
+* **GET** `/api/users`
+* **GET** `api/users/tutors`
+* **GET** `/api/users/<user_id>`
+* **GET** `api/users/me`
+* **GET** `api/users/me/availability`
+
+* **PUT** `api/users/me/maketutor`
+
+* **POST** `api/users/me/availability`
+
+* **DELETE** `api/users/me/availability`

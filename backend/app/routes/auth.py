@@ -2,7 +2,7 @@ from app import db, bcrypt, loginManager
 from app.models import User
 
 from flask import Blueprint, request
-from flask_login import login_user, logout_user, current_user
+from flask_login import login_user, logout_user, login_required, current_user
 
 auth = Blueprint("auth", __name__, url_prefix="/auth")
 
@@ -84,7 +84,8 @@ def isLoggedIn():
 	return {"loggedin": current_user.is_authenticated}, 200
 
 # Logout
-@auth.route("/logout", methods=["GET"])
+@auth.route("/logout", methods=["POST"])
+@login_required
 def logout():
 	logout_user()
 	return {"message": "Logout successful"}, 200
