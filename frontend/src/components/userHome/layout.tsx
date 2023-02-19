@@ -259,7 +259,7 @@ export default function Example({
                   {title}
                 </h1>
               </div>
-              <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+              <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 pt-3">
                 {children}
               </div>
             </div>

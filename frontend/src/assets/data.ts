@@ -1,4 +1,4 @@
-export const data = {
+export const courseCodes = {
     "ARCH": [
         "201",
         "400",

@@ -1,19 +1,36 @@
 import { useState } from 'react';
 import Layout from './layout';
-import SearchBox from './searchBox';
+import SearchBoxCourse from './searchBoxCourse';
+import SearchBoxNumber from './searchBoxNumber';
 
 export default function Page() {
   const [query, setQuery] = useState('');
-  const [selectedCourse, setSelectedCourse] = useState(null);
-
+  const [selectedCourseSubject, setSelectedCourseSubject] = useState() as [
+    string | undefined,
+    () => void
+  ];
+  const [selectedCourseNumber, setSelectedCourseNumber] = useState() as [
+    number,
+    () => void
+  ];
+  // const courseSelectionStyling: string = {selectedCourseSubject ? 'bg-blue-500' : 'bg-gray-500'}
+  let courseSelectionStyling = '';
+  if (selectedCourseSubject) {
+    courseSelectionStyling = 'justify-evenly';
+  }
   return (
     <Layout title="Find Help Now">
-      <SearchBox
-        selectedCourse={selectedCourse}
-        setSelectedCourse={setSelectedCourse}
-        query={query}
-        setQuery={setQuery}
-      />
+      <div className={`flex ${courseSelectionStyling}`}>
+        <SearchBoxCourse
+          selectedCourse={selectedCourseSubject}
+          setSelectedCourse={setSelectedCourseSubject}
+        />
+        <SearchBoxNumber
+          selectedSubject={selectedCourseSubject}
+          selectedNumber={selectedCourseNumber}
+          setSelectedNumber={setSelectedCourseNumber}
+        />
+      </div>
     </Layout>
   );
 }
