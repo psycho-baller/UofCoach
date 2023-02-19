@@ -1,7 +1,8 @@
 from app import db, bcrypt, loginManager
 from app.models import User
 
-from flask import Blueprint, request, session
+from flask import Blueprint, request
+from flask_login import login_user, logout_user, current_user
 
 auth = Blueprint("auth", __name__, url_prefix="/auth")
 
@@ -50,7 +51,7 @@ def register():
 	except Exception as e:
 		return {"error": f"Error adding user to database: {e}"}, 400
 
-	session["user_id"] = user.id
+	login_user(user)
 
 	return {
 		"message": "User created successfully",
@@ -73,17 +74,17 @@ def login():
 	if not bcrypt.check_password_hash(user.password, password):
 		return {"error": "Wrong password"}, 401
 
-	session["user_id"] = user.id
+	login_user(user)
 
 	return {"message": "Login successful"}, 200
 
 # Check if logged in
 @auth.route("/isloggedin", methods=["GET"])
 def isLoggedIn():
-	return {"loggedin": "user_id" in session}, 200
+	return {"loggedin": current_user.is_authenticated}, 200
 
 # Logout
 @auth.route("/logout", methods=["GET"])
 def logout():
-	session.pop("user_id", None)
+	logout_user()
 	return {"message": "Logout successful"}, 200
