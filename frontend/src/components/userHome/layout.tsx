@@ -10,16 +10,31 @@ import {
   UsersIcon,
   XMarkIcon,
   Cog6ToothIcon,
+  QuestionMarkCircleIcon,
 } from '@heroicons/react/24/outline';
+import { FaRegHandshake } from 'react-icons/fa';
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
-  { name: 'Settings', href: '/settings', icon: Cog6ToothIcon, current: false },
-  { name: 'Team', href: '', icon: UsersIcon, current: false },
-  { name: 'Projects', href: '#', icon: FolderIcon, current: false },
-  { name: 'Calendar', href: '#', icon: CalendarIcon, current: false },
-  { name: 'Documents', href: '#', icon: InboxIcon, current: false },
-  { name: 'Reports', href: '#', icon: ChartBarIcon, current: false },
+  //   { name: 'Settings', href: '/settings', icon: Cog6ToothIcon, current: false },
+  {
+    name: 'I Need Help',
+    href: '/find-help',
+    icon: QuestionMarkCircleIcon,
+    current: false,
+  },
+  {
+    name: 'Help Someone',
+    href: 'help-someone',
+    icon: FaRegHandshake,
+    current: false,
+  },
+  {
+    name: 'Edit Availability',
+    href: '/availability',
+    icon: CalendarIcon,
+    current: false,
+  },
 ];
 
 function classNames(...classes: string[]) {
