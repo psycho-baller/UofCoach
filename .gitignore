@@ -46,3 +46,6 @@ __pycache__/
 /backend/app/__pycache__/__init__.cpython-39.pyc
 /backend/app/__pycache__/config.cpython-39.pyc
 .env
+backend/.env
+backend/app/__pycache__/__init__.cpython-39.pyc
+backend/app/__pycache__/config.cpython-39.pyc
