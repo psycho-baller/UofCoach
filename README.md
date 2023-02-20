@@ -69,7 +69,9 @@ CREATE DATABASE uofcoach;
 
 *Note: You can set the database name / user / password / port, but you'll need to update the `.env` file (see below)*
 
-7. Create `.env` file and add app and database settings
+7. Rename the `.env.example` file to `.env` and add app and database settings/evnironment variables
+
+```bash
 
 * `SECRET_KEY`: The secret key for the application (can be any string)
 * `DB_TYPE`: The engine type of database - defaults to "mysql"
